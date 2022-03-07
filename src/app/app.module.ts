@@ -1,16 +1,29 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { RouterModule } from '@angular/router';
+
+// the second parameter 'fr-FR' is optional
+registerLocaleData(localeRu, 'ru');
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RouterModule.forRoot([
+      {path: 'home', component: HomeComponent},
+      {path: 'about', component: AboutComponent},
+      {path: '', redirectTo: '/home', pathMatch: 'full'}
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]

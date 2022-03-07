@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'i18n-angular-demo';
+  localesList = [
+    { code: 'en-US', label: 'English' },
+    { code: 'ru', label: 'Русский' }
+  ];
 }
